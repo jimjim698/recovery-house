@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import Client from './Client'
+import {connect} from 'react-redux'
 
 
-const clients=[]
-export default class AddClient extends Component{
+
+class AddClient extends Component{
   constructor(){
     super()
     this.state={
@@ -22,22 +23,8 @@ export default class AddClient extends Component{
 
   handleSubmit=(e)=>{
     e.preventDefault()
-    clients.push(this.state)
-    this.setState({
-      name:"",
-      age:"",
-      chore:""
-    })
+    this.props.addResident(this.state)
   }
-
-  displayClients=()=>{
-    return clients.map(client=>{
-      return(<Client client={client}/>)
-    })
-  }
-
-
-
 
   render(){
 
@@ -52,9 +39,14 @@ export default class AddClient extends Component{
       <input onChange={this.handleChange}  name="chore" type='text'value={this.state.chore} /><br/>
       <input type="submit"/>
       </form><br/>
-      {this.displayClients()}
-      {console.log(clients)}
+
       </div>
     )
   }
 }
+
+const mapDispatchToProps= dispatch=>({
+  addResident: resident=> dispatch({ type:'ADD_RESIDENT', resident: resident})
+})
+
+export default connect(null,mapDispatchToProps)(AddClient)

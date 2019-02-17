@@ -11,7 +11,7 @@ export default class Client extends Component{
       <div>
     <u><h2>{this.props.client.name}</h2></u>
     <b>Age:</b> {this.props.client.age}<br/>
-    <b>Chore:</b> {this.props.client.chore}
+    <b>Chore:</b> {this.props.client.chore}<br />
       </div>
 
 
