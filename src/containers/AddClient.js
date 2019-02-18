@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Client} from './Client'
+import {Client} from '../components/Client'
 import {connect} from 'react-redux'
 import {addClient} from '../actions/clients'
 

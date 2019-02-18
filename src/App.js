@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import AddClient from './components/AddClient'
+import AddClient from './containers/AddClient'
 import {ButtonToolbar} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import Community from './components/Community'
+import Community from './containers/Community'
 import Chores from './components/Chores'
-import Clients from './components/Clients'
+import Clients from './containers/Clients'
 import ChangeChore from './components/ChangeChore'
 
 
