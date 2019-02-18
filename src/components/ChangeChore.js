@@ -6,8 +6,9 @@ export default class ChangeChore extends Component{
   render(){
 
     return(
-      "Change Chore"
-
+      <div>
+      {this.props.hello}
+      </div>
     )
 
   }

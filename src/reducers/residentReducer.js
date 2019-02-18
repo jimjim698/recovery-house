@@ -1,10 +1,10 @@
-function residentReducer(state=[], action){
+function clientsReducer(state=[], action){
   switch(action.type){
-    case "ADD_RESIDENT":
+    case "ADD_CLIENT":
     console.log(action)
-    return [...state, action.resident]
+    return [...state, action.client]
      default: return state
   }
 }
 
-export default residentReducer
+export default clientsReducer

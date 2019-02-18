@@ -14,6 +14,13 @@ import ChangeChore from './components/ChangeChore'
 
 class App extends Component {
 
+  constructor(){
+    super()
+    this.state={
+      hello:'hello'
+    }
+  }
+
 
   render() {
     return (
@@ -48,7 +55,7 @@ class App extends Component {
                 <Route exact path='/add_client' component={AddClient}/>
                 <Route exact path='/community' component={Community}/>
                 <Route exact path='/chores' component={Chores}/>
-                <Route exact path='/clients' component={Clients} something={"hi"}/>
+                <Route exact path='/clients' component={Clients}/>
                 <Route exact path='/change_chore' component={ChangeChore}/>
               </React.Fragment>
       </Router>

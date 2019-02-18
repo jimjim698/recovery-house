@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Client from './Client'
 import {connect} from 'react-redux'
+import {addClient} from '../actions/clients'
 
 
 
@@ -23,8 +24,10 @@ class AddClient extends Component{
 
   handleSubmit=(e)=>{
     e.preventDefault()
-    this.props.addResident(this.state)
+    this.props.addClient(this.state)
   }
+
+
 
   render(){
 
@@ -45,8 +48,6 @@ class AddClient extends Component{
   }
 }
 
-const mapDispatchToProps= dispatch=>({
-  addResident: resident=> dispatch({ type:'ADD_RESIDENT', resident: resident})
-})
 
-export default connect(null,mapDispatchToProps)(AddClient)
+
+export default connect(null,{addClient})(AddClient)
