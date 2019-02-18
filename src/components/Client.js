@@ -1,20 +1,12 @@
-import React, {Component} from 'react'
-
-export default class Client extends Component{
+import React from 'react'
 
 
-
-
-  render(){
-
+export const Client=({client})=>{
     return(
       <div>
-    <u><h2>{this.props.client.name}</h2></u>
-    <b>Age:</b> {this.props.client.age}<br/>
-    <b>Chore:</b> {this.props.client.chore}<br />
+    <u><h2>{client.name}</h2></u>
+    <b>Age:</b> {client.age}<br/>
+    <b>Chore:</b> {client.chore}<br />
       </div>
-
-
     )
   }
-}

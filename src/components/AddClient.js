@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import Client from './Client'
+import {Client} from './Client'
 import {connect} from 'react-redux'
 import {addClient} from '../actions/clients'
 
 
-
+let newClients =[]
 class AddClient extends Component{
   constructor(){
     super()
@@ -25,6 +25,20 @@ class AddClient extends Component{
   handleSubmit=(e)=>{
     e.preventDefault()
     this.props.addClient(this.state)
+    newClients.push(this.state)
+    this.setState({
+      name:"",
+      age: "",
+      chore:""
+    })
+  }
+
+  displayNewClients =()=>{
+    return newClients.map(client=>{
+      return(
+        <Client client={client}/>
+      )
+    })
   }
 
 
@@ -42,7 +56,7 @@ class AddClient extends Component{
       <input onChange={this.handleChange}  name="chore" type='text'value={this.state.chore} /><br/>
       <input type="submit"/>
       </form><br/>
-
+    {this.displayNewClients()}
       </div>
     )
   }
