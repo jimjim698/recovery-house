@@ -11,7 +11,8 @@ class AddClient extends Component{
     this.state={
       name: "",
       age: "",
-      chore:""
+      chore:"",
+      job: ""
     }
   }
 
@@ -29,7 +30,8 @@ class AddClient extends Component{
     this.setState({
       name:"",
       age: "",
-      chore:""
+      chore:"",
+      job: ""
     })
   }
 
@@ -49,11 +51,13 @@ class AddClient extends Component{
       <div>
       <form onSubmit={this.handleSubmit}>
       <label>Client Name</label><br/>
-      <input onChange={this.handleChange} name="name" type="text" value={this.state.name}/><br />
+      <input onChange={this.handleChange} name="name" type="text" value={this.state.name}/><br/>
       <label>Client Age</label><br/>
-      <input onChange={this.handleChange} name="age" type="text" value={this.state.age}/><br />
+      <input onChange={this.handleChange} name="age" type="text" value={this.state.age}/><br/>
       <label>Client Chore</label><br/>
       <input onChange={this.handleChange}  name="chore" type='text'value={this.state.chore} /><br/>
+      <label>Client Job</label><br/>
+      <input onChange={this.handleChange} name="job" type="text" value={this.state.job}/><br/>
       <input type="submit"/>
       </form><br/>
     {this.displayNewClients()}
