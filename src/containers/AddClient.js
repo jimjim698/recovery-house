@@ -5,6 +5,7 @@ import {addClient} from '../actions/clients'
 
 
 let newClients =[]
+let client=[]
 class AddClient extends Component{
   constructor(){
     super()
@@ -44,11 +45,21 @@ class AddClient extends Component{
   }
 
 
+  componentDidMount=()=>{
+    return fetch('http://localhost:3001/clients').then(c=>{
+      return c.json().then(json=>{
+        console.log(json)
+      })
+    })
+  }
+
+
 
   render(){
 
     return(
       <div>
+
       <form onSubmit={this.handleSubmit}>
       <label>Client Name</label><br/>
       <input onChange={this.handleChange} name="name" type="text" value={this.state.name}/><br/>
@@ -60,7 +71,10 @@ class AddClient extends Component{
       <input onChange={this.handleChange} name="job" type="text" value={this.state.job}/><br/>
       <input type="submit"/>
       </form><br/>
+    <button onClick={()=> console.log(client)}> click</button>
     {this.displayNewClients()}
+
+
       </div>
     )
   }

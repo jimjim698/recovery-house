@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
-import residentReducer from './residentReducer'
+import clientsReducer from './clientsReducer'
 
 
 
  const rootReducer= combineReducers({
-  residents: residentReducer
+  clients: clientsReducer
 })
 
 export default rootReducer

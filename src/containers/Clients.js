@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
+import {fetchClients} from '../actions/clients'
+import {connect} from 'react-redux'
 
 
-export default class Clients extends Component{
+ class Clients extends Component{
 
 
 handle=()=>{
@@ -13,6 +15,10 @@ handle=()=>{
   )
 }
 
+componentDidMount=()=>{
+  fetchClients()
+}
+
   render(){
 
 
@@ -20,9 +26,15 @@ handle=()=>{
 
 <div>
 {this.props.something}
-{console.log(this.props.somethin)}
+{console.log(this.props.clients)}
 </div>
 
     )
   }
 }
+
+const mapStateToProps=(state)=>{
+  return {clients: state.clients}
+}
+
+export default connect(mapStateToProps)(Clients)
