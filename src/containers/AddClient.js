@@ -37,21 +37,12 @@ class AddClient extends Component{
   }
 
   displayNewClients =()=>{
-    if (newClients.length>0){
     return newClients.map(client=>{
-      if(client.age !== ""){
       return(
         <Client client={client}/>
       )
-    }
     })
   }
-  }
-
-
-
-
-
 
   render(){
 
