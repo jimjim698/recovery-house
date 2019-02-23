@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {fetchClients} from '../actions/clients'
 import {connect} from 'react-redux'
+import {Client} from '../components/Client'
 
 
  class Clients extends Component{
@@ -19,14 +20,20 @@ componentDidMount=()=>{
   this.props.fetchClients()
 }
 
+displayClients=()=>{
+  this.props.clients.map(client=>{
+    return(<Client client={client} />)
+  })
+}
+
   render(){
 
 
     return(
 
 <div>
-{this.props.something}
 {console.log(this.props.clients)}
+
 </div>
 
     )

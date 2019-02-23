@@ -1,6 +1,9 @@
 function clientsReducer(state={loading: false, clients:[]}, action){
 
   switch(action.type){
+    case "ADD_CLIENT":
+    console.log(action)
+    return [...state, action.client]
     case 'LOADING_CLIENTS':
     return {...state, loading: true}
     case "FETCH_CLIENTS":
