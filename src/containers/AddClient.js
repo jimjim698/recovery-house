@@ -37,23 +37,19 @@ class AddClient extends Component{
   }
 
   displayNewClients =()=>{
+    if (newClients.length>0){
     return newClients.map(client=>{
+      if(client.age !== ""){
       return(
         <Client client={client}/>
       )
+    }
     })
+  }
   }
 
 
-  componentDidMount=()=>{
-    return fetch('http://localhost:3001/api/clients').then(c=>{
-      return c.json().then(json=>{
-        console.log(json)
-        newClients.push(json)
-        
-      })
-    })
-  }
+
 
 
 
@@ -73,10 +69,10 @@ class AddClient extends Component{
       <input onChange={this.handleChange} name="job" type="text" value={this.state.job}/><br/>
       <input type="submit"/>
       </form><br/>
-    <button onClick={()=> console.log(client)}> click</button>
+    <div id="displayClients">
     {this.displayNewClients()}
     {console.log(newClients)}
-
+  </div>
 
       </div>
     )
