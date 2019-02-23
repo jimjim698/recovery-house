@@ -6,10 +6,10 @@ export const addClient = (client)=>{
 }
 
 export function fetchClients(){
-  debugger
+  
   return (dispatch)=>{
     dispatch({type: 'LOADING_CLIENTS'})
-    return fetch('http://localhost:3001/clients').then(response=>{
+    return fetch('http://localhost:3001/api/clients').then(response=>{
       return response.json()
   }).then(clients=>{
       return dispatch({type: 'FETCH_CLIENTS', payload: clients})

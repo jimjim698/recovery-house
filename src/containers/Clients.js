@@ -16,7 +16,7 @@ handle=()=>{
 }
 
 componentDidMount=()=>{
-  fetchClients()
+  this.props.fetchClients()
 }
 
   render(){
@@ -37,4 +37,4 @@ const mapStateToProps=(state)=>{
   return {clients: state.clients}
 }
 
-export default connect(mapStateToProps)(Clients)
+export default connect(mapStateToProps,{fetchClients})(Clients)

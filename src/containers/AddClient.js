@@ -46,9 +46,11 @@ class AddClient extends Component{
 
 
   componentDidMount=()=>{
-    return fetch('http://localhost:3001/clients').then(c=>{
+    return fetch('http://localhost:3001/api/clients').then(c=>{
       return c.json().then(json=>{
         console.log(json)
+        newClients.push(json)
+        
       })
     })
   }
@@ -73,6 +75,7 @@ class AddClient extends Component{
       </form><br/>
     <button onClick={()=> console.log(client)}> click</button>
     {this.displayNewClients()}
+    {console.log(newClients)}
 
 
       </div>
