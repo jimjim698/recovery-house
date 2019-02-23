@@ -16,12 +16,9 @@ handle=()=>{
   )
 }
 
-componentDidMount=()=>{
-  this.props.fetchClients()
-}
 
 displayClients=()=>{
-  this.props.clients.map(client=>{
+return this.props.clients.map(client=>{
     return(<Client client={client} />)
   })
 }
@@ -32,16 +29,13 @@ displayClients=()=>{
     return(
 
 <div>
-{console.log(this.props.clients)}
-
+{console.log(this.props)}
+{this.displayClients()}
 </div>
 
     )
   }
 }
 
-const mapStateToProps=(state)=>{
-  return {clients: state.clients}
-}
 
-export default connect(mapStateToProps,{fetchClients})(Clients)
+export default Clients

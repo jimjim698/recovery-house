@@ -8,6 +8,9 @@ import Community from './containers/Community'
 import Chores from './components/Chores'
 import Clients from './containers/Clients'
 import ChangeChore from './components/ChangeChore'
+import {fetchClients} from './actions/clients'
+import {connect} from 'react-redux'
+import {Client} from './components/Client'
 
 
 
@@ -22,6 +25,10 @@ class App extends Component {
   }
 
 
+  componentDidMount=()=>{
+    this.props.fetchClients()
+  }
+
   render() {
     return (
       <div>
@@ -29,7 +36,7 @@ class App extends Component {
           <header className="App-header">
             <h2>Recovery House</h2>
               <div>
-
+                {console.log(this.props.clients)}
                 <ButtonToolbar>
                   <Button href='/clients' variant="secondary" size="sm">
                     Clients
@@ -55,7 +62,7 @@ class App extends Component {
                 <Route exact path='/add_client' component={AddClient}/>
                 <Route exact path='/community' component={Community}/>
                 <Route exact path='/chores' component={Chores}/>
-                <Route exact path='/clients' component={Clients}/>
+                <Route exact path='/clients' render={routerProps=><Clients {...routerProps} clients={this.props.clients}/>}/>
                 <Route exact path='/change_chore' component={ChangeChore}/>
               </React.Fragment>
       </Router>
@@ -67,4 +74,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps=(state)=>{
+  return {clients: state.clients.clients}
+}
+
+export default connect(mapStateToProps,{fetchClients})(App);
