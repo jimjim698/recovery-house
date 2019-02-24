@@ -10,6 +10,18 @@ export const addClient = (client)=>{
   }
 }
 
+export const editChore = (clientId, chore)=>{
+  return(dispatch)=>{
+    return fetch(`http://localhost:3001/api/clients/${clientId}`,{
+      method: 'PATCH',
+      body: JSON.stringify({clientId: clientId, chore: chore}),
+      headers: {'Content-Type': 'application/json'}
+    }).then(response=> response.json()).then(client=>{
+      return dispatch({type: "EDIT_CHORE", payload: clientId, chore: chore})
+    })
+  }
+}
+
 
 export function fetchClients(){
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {ChoreForm} from '../components/ChoreForm'
+import ChoreForm from '../components/ChoreForm'
 
 
 export default class ChangeChore extends Component{
@@ -24,7 +24,7 @@ displayChores=()=>{
   return this.props.clients.map(client=>{
     return(
 
-      <ChoreForm client={client} handleSubmit={this.handleSubmit}/>
+      <ChoreForm key={client.id} client={client} handleSubmit={this.handleSubmit}/>
     )
   })
 }

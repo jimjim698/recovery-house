@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
+import {editChore} from '../actions/clients'
+import {connect} from 'react-redux'
 
-export class ChoreForm extends Component{
+
+ class ChoreForm extends Component{
   constructor(props){
     super(props)
     this.state={
@@ -14,11 +17,16 @@ export class ChoreForm extends Component{
     })
   }
 
+  handleSubmit=()=>{
+    this.props.editChore(this.props.client.id, this.state.chore)
+
+  }
+
 
   render(){
   return(
     <React.Fragment>
-    <form>
+    <form onSubmit={this.handleSubmit}>
     {this.props.client.name}<br/>
     <input
      type='text'
@@ -31,3 +39,5 @@ export class ChoreForm extends Component{
   )
 }
 }
+
+export default connect(null, {editChore})(ChoreForm)
