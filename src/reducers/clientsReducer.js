@@ -9,8 +9,7 @@ function clientsReducer(state={loading: false, clients:[]}, action){
     case "FETCH_CLIENTS":
     return {loading: false, clients: action.payload}
     case "EDIT_CHORE":
-    debugger
-    return {}
+    return state.clients.map(c=> c.id === action.payload ? c.chore === action.chore : c )
      default: return state
   }
 }
