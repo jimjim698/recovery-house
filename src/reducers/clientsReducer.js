@@ -1,15 +1,16 @@
-function clientsReducer(state={loading: false, clients:[]}, action){
+function clientsReducer(state=[], action){
 
   switch(action.type){
     case "ADD_CLIENT":
     console.log(action)
-    return {...state, clients: state.clients.concat(action.client)}
+    return state.concat(action.client)
     case 'LOADING_CLIENTS':
-    return {...state, loading: true}
+    return state
     case "FETCH_CLIENTS":
-    return {loading: false, clients: action.payload}
+    return action.payload
     case "EDIT_CHORE":
-    return state.clients.map(c=> c.id === action.payload ? c.chore === action.chore : c )
+    debugger
+    return {...state, clients: state.clients.map(c=> c.id === action.payload ? c.chore === action.chore : c )}
      default: return state
   }
 }

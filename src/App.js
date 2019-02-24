@@ -74,7 +74,7 @@ class App extends Component {
 }
 
 const mapStateToProps=(state)=>{
-  return {clients: state.clients.clients}
+  return {clients: state.clients}
 }
 
 export default connect(mapStateToProps,{fetchClients})(App);
