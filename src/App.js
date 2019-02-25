@@ -60,7 +60,7 @@ class App extends Component {
               <React.Fragment>
                 <Route exact path='/clients/new' component={AddClient}/>
                 <Route exact path='/community' component={Community}/>
-                <Route exact path='/chores' component={Chores}/>
+                <Route exact path='/chores' render ={routerProps=><Chores {...routerProps} clients={this.props.clients}/>}/>
                 <Route exact path='/clients' render={routerProps=><Clients {...routerProps} clients={this.props.clients}/>}/>
                 <Route exact path='/change_chore' render={routerProps=><ChangeChore {...routerProps} clients={this.props.clients}/>}/>
               </React.Fragment>
