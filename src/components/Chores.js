@@ -15,8 +15,9 @@ displayChores = ()=>{
 
 
     return(
-      <div className="Chores">
-        <ol>
+      <div >
+        <h1>Current Chore Assignments</h1>
+        <ol className="Chores">
         {this.displayChores()}
         </ol>
       </div>

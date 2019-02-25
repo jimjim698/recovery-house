@@ -13,7 +13,7 @@ class AddClient extends Component{
       name: "",
       age: "",
       chore:"",
-      job: ""
+      job: "",
     }
   }
 
@@ -54,10 +54,11 @@ class AddClient extends Component{
       <input onChange={this.handleChange} name="name" type="text" value={this.state.name}/><br/>
       <label>Client Age</label><br/>
       <input onChange={this.handleChange} name="age" type="text" value={this.state.age}/><br/>
-      <label>Client Chore</label><br/>
-      <input onChange={this.handleChange}  name="chore" type='text'value={this.state.chore} /><br/>
       <label>Client Job</label><br/>
       <input onChange={this.handleChange} name="job" type="text" value={this.state.job}/><br/>
+      <label>Chore</label><br/>
+      <input onChange={this.handleChange}  name="chore" type='text'value={this.state.chore} /><br/>
+
       <input type="submit"/>
       </form><br/>
     <div id="displayClients">

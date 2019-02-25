@@ -15,6 +15,7 @@ import {Client} from './components/Client'
 
 
 
+
 class App extends Component {
 
   constructor(){
@@ -63,6 +64,13 @@ class App extends Component {
                 <Route exact path='/chores' render ={routerProps=><Chores {...routerProps} clients={this.props.clients}/>}/>
                 <Route exact path='/clients' render={routerProps=><Clients {...routerProps} clients={this.props.clients}/>}/>
                 <Route exact path='/change_chore' render={routerProps=><ChangeChore {...routerProps} clients={this.props.clients}/>}/>
+                <div className="Sessions">
+                  <Link to={Community}>Log In &nbsp;</Link>
+
+                  <Link to={Community}>Log Out &nbsp;</Link>
+
+                  <Link to={Community}>Create New Account</Link>
+                </div>
               </React.Fragment>
       </Router>
       </div>
