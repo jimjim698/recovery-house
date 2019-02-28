@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -39,10 +40,14 @@
 
 
 .Sessions {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   color: green;
+  bottom: 0;
   text-align: center;
+  margin-top:25px;
+padding-top: 15px;
+padding-bottom: 10px;
+
 }
