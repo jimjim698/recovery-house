@@ -78,7 +78,7 @@ class App extends Component {
               </React.Fragment>
       </Router>
       </div>
-
+      {console.log(this.props.user)}
       </div>
 
     );
@@ -86,7 +86,7 @@ class App extends Component {
 }
 
 const mapStateToProps=(state)=>{
-  return {clients: state.clients}
+  return {clients: state.clients, user:state.user}
 }
 
 export default connect(mapStateToProps,{fetchClients})(App);
