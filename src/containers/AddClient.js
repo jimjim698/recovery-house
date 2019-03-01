@@ -26,7 +26,6 @@ class AddClient extends Component{
 
   handleSubmit=(e)=>{
     e.preventDefault()
-    debugger
     this.props.addClient(this.state)
     newClients.push(this.state)
     this.setState({
