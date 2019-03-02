@@ -6,7 +6,7 @@ export const signup = (user)=>{
       body: JSON.stringify({user: user}),
       headers:{'Content-Type': 'application/json'}
     }).then(response=> response.json()).then(client=>{
-      return dispatch({type: 'SET_USER', payload: user})
+      return dispatch({type: 'SET_USER', payload: user.username})
     })
   }
 }
