@@ -1,5 +1,6 @@
 export const signup = (user)=>{
   return dispatch=>{
+    debugger
     return fetch('http://localhost:3001/api/users',{
       method: 'POST',
       body: JSON.stringify({user: user}),
