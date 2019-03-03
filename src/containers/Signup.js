@@ -20,7 +20,7 @@ import {connect} from 'react-redux'
 
   handleSubmit=(e)=>{
     e.preventDefault()
-    this.props.signup(this.state, this.props.history)
+    this.props.signup(this.state, ()=> this.props.history.push('/clients'))
   }
 
 
