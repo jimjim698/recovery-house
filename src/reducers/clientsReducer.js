@@ -1,4 +1,6 @@
-function clientsReducer(state=[], action){
+let initialState= []
+
+function clientsReducer(state= initialState, action){
 
   switch(action.type){
     case "ADD_CLIENT":
