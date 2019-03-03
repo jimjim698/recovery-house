@@ -20,7 +20,7 @@ import {connect} from 'react-redux'
 
   handleSubmit=(e)=>{
     e.preventDefault()
-    this.props.signup(this.state)
+    this.props.signup(this.state, this.props.history)
   }
 
 
@@ -31,7 +31,6 @@ import {connect} from 'react-redux'
     return(
       <div>
       <h1>Create New Account</h1>
-      {console.log(this.props.history)}
       <form onSubmit={this.handleSubmit}>
       <label>Username</label><br/>
       <input name='username'onChange={this.handleChange}type='text'value={this.state.username}/><br/>

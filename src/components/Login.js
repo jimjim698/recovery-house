@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
+import {login} from '../actions/user'
+import {connect} from 'react-redux'
 
-export default class Login extends Component{
+class Login extends Component{
 
   constructor(){
     super()
@@ -17,7 +19,13 @@ export default class Login extends Component{
     })
   }
 
-  handleSubmit=()=>{
+  handleSubmit=(e)=>{
+    e.preventDefault()
+    this.props.login(this.state)
+    this.setState({
+      username: "",
+      password: ""
+    })
 
   }
 
@@ -42,3 +50,5 @@ export default class Login extends Component{
     )
   }
 }
+
+export default connect(null,{login})(Login)
