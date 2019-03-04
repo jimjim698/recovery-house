@@ -90,7 +90,7 @@ class App extends Component {
     return <Redirect to='login'/>
   }
 
-  const loggedIn=()=>{
+  export const loggedIn=()=>{
     return !!sessionStorage["current"]
   }
 

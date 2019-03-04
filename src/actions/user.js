@@ -29,3 +29,17 @@ export const login = (user, callback)=>{
     }).catch(error=> alert("Sorry, The Information Provided Is Invalid. Please Review Your Information And Try Again."))
   }
 }
+
+export const deleteUser = (id)=>{
+  return dispatch=>{
+    return fetch(`${url}/${id}`,{
+      method: 'DELETE',
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(response=> response.json()).then(user=>{
+      dispatch({type: 'DELETE_USER', payload: user.username})
+    })
+  }
+}
