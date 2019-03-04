@@ -12,7 +12,8 @@ export const Client=({client, deleteClient, loggedIn})=>{
     <b>Age:</b> {client.age}<br/>
     <b>Chore:</b> {client.chore}<br />
     <b>Job:</b>{client.job}<br/>
-      {!!loggedIn() ? <button onClick={()=>deleteClient(client.id)}>Delete Client</button>: false}
+    {console.log(deleteClient)}
+      {!!loggedIn() && deleteClient ? <button onClick={()=>deleteClient(client.id)}>Delete Client</button>: false}
 
       </div>
     )

@@ -20,7 +20,7 @@ import {connect} from 'react-redux'
   handleSubmit=(e)=>{
     e.preventDefault()
     this.props.editChore(this.props.client.id, this.state.chore)
-
+    e.target.style.visibility = "hidden"
   }
 
 

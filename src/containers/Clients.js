@@ -21,7 +21,7 @@ handle=()=>{
 
 displayClients=()=>{
 return this.props.clients.map(client=>{
-    return(<Client key={client.id} loggedIn={loggedIn} deleteClient={this.props.deleteClient}client={client} />)
+    return(<Client key={client.id} loggedIn={loggedIn} deleteClient={this.props.deleteClient} client={client} />)
   })
 }
 

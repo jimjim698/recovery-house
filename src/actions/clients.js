@@ -1,6 +1,6 @@
 const url = 'http://localhost:3001/api/clients'
 
-export const addClient = (client)=>{
+export const addClient = (client, callback)=>{
   return (dispatch)=>{
     return fetch('http://localhost:3001/api/clients',{
       method: 'POST',
@@ -9,6 +9,7 @@ export const addClient = (client)=>{
     }).then(response=> response.json()).then(client=>{
       return dispatch({type: 'ADD_CLIENT', payload: client})
     })
+    callback()
   }
 }
 

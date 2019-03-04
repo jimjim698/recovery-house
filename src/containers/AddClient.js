@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Client} from '../components/Client'
 import {connect} from 'react-redux'
 import {addClient} from '../actions/clients'
+import {deleteClient} from '../actions/clients'
+import {loggedIn} from '../App'
 
 
 let newClients =[]
@@ -39,7 +41,7 @@ class AddClient extends Component{
   displayNewClients =()=>{
     return newClients.map(client=>{
       return(
-        <Client client={client}/>
+        <Client key={client.id} loggedIn={loggedIn} client={client}/>
       )
     })
   }
@@ -48,7 +50,6 @@ class AddClient extends Component{
 
     return(
       <div>
-
       <form onSubmit={this.handleSubmit}>
       <label>Client Name</label><br/>
       <input onChange={this.handleChange} name="name" type="text" value={this.state.name}/><br/>
@@ -63,7 +64,6 @@ class AddClient extends Component{
       </form><br/>
     <div id="displayClients">
     {this.displayNewClients()}
-    {console.log(newClients)}
   </div>
 
       </div>
@@ -73,4 +73,5 @@ class AddClient extends Component{
 
 
 
-export default connect(null,{addClient})(AddClient)
+
+export default connect(null,{addClient, deleteClient})(AddClient)
