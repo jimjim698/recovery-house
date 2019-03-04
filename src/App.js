@@ -53,7 +53,7 @@ class App extends Component {
                   <Button href='/clients/new'variant="secondary" size="sm">
                   Add Client
                   </Button>
-                  <Button href='/change_chore'variant="secondary" size="sm">
+                  <Button href='/chores/edit'variant="secondary" size="sm">
                   Change Chores
                   </Button>
                 </ButtonToolbar>
@@ -63,9 +63,9 @@ class App extends Component {
               <React.Fragment>
                 <Route exact path='/clients/new' component={AddClient}/>
                 <Route exact path='/community' component={Community}/>
-                <Route exact path='/chores' render ={routerProps=><Chores {...routerProps} clients={this.props.clients}/>}/>
-                <Route exact path='/clients' render={routerProps=><Clients {...routerProps} clients={this.props.clients}/>}/>
-                <Route exact path='/change_chore' render={routerProps=><ChangeChore {...routerProps} clients={this.props.clients}/>}/>
+                <Route exact path='/chores' render ={()=><Chores clients={this.props.clients}/>}/>
+                <Route exact path='/clients' render={()=><Clients clients={this.props.clients}/>}/>
+                <Route exact path='/chores/edit' render={()=><ChangeChore clients={this.props.clients}/>}/>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
                 <Route exact path='/logout' component={()=>logout()}/>
@@ -89,6 +89,10 @@ class App extends Component {
   const logout=()=>{
     if(sessionStorage['current']) sessionStorage.removeItem('current')
     return <Redirect to='login'/>
+  }
+
+  const loggedIn=()=>{
+    return !!sessionStorage["current"]
   }
 
 
