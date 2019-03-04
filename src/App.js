@@ -61,7 +61,7 @@ class App extends Component {
             </header>
             <Router>
               <React.Fragment>
-                <Route exact path='/clients/new' component={()=> loggedIn() ? {AddClient} : <Redirect to='/login'/>}/>
+                <Route exact path='/clients/new' component={()=> loggedIn() ? <AddClient/> : <Redirect to='/login'/>}/>
                 <Route exact path='/community' component={Community}/>
                 <Route exact path='/chores' render ={()=><Chores clients={this.props.clients}/>}/>
                 <Route exact path='/clients' render={()=><Clients clients={this.props.clients}/>}/>
@@ -79,7 +79,6 @@ class App extends Component {
               </React.Fragment>
       </Router>
       </div>
-      {console.log(this.props.user)}
       </div>
 
     );
