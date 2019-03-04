@@ -15,6 +15,8 @@ function clientsReducer(state= initialState, action){
     const index = state.findIndex(i=> action.payload)
     newState[index].chore = action.chore
     return newState
+    case 'DELETE_USER':
+    return state.filter(client=> client.id !== action.payload.id)
      default: return state
   }
 }

@@ -1,3 +1,5 @@
+const url = 'http://localhost:3001/api/clients'
+
 export const addClient = (client)=>{
   return (dispatch)=>{
     return fetch('http://localhost:3001/api/clients',{
@@ -35,4 +37,18 @@ export function fetchClients(){
       return dispatch({type: 'FETCH_CLIENTS', payload: clients})
   })
  }
+}
+
+export const deleteClient = (id)=>{
+  return dispatch=>{
+    return fetch(`${url}/${id}`,{
+      method: 'DELETE',
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(response=> response.json()).then(user=>{
+      dispatch({type: 'DELETE_USER', payload: user})
+    })
+  }
 }

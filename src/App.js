@@ -85,7 +85,7 @@ class App extends Component {
   }
 }
 
-  const logout=()=>{
+  export const logout=()=>{
     if(sessionStorage['current']) sessionStorage.removeItem('current')
     return <Redirect to='login'/>
   }
