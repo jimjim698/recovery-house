@@ -61,11 +61,11 @@ class App extends Component {
             </header>
             <Router>
               <React.Fragment>
-                <Route exact path='/clients/new' component={AddClient}/>
+                <Route exact path='/clients/new' component={()=> loggedIn() ? {AddClient} : <Redirect to='/login'/>}/>
                 <Route exact path='/community' component={Community}/>
                 <Route exact path='/chores' render ={()=><Chores clients={this.props.clients}/>}/>
                 <Route exact path='/clients' render={()=><Clients clients={this.props.clients}/>}/>
-                <Route exact path='/chores/edit' render={()=><ChangeChore clients={this.props.clients}/>}/>
+                <Route exact path='/chores/edit' render={ ()=> loggedIn() ? <ChangeChore clients={this.props.clients}/>:<Redirect to='/login'/>}/>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
                 <Route exact path='/logout' component={()=>logout()}/>
