@@ -3,7 +3,7 @@ import './App.css';
 import AddClient from './containers/AddClient'
 import {ButtonToolbar} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 import Community from './containers/Community'
 import Chores from './components/Chores'
 import Clients from './containers/Clients'
@@ -68,10 +68,11 @@ class App extends Component {
                 <Route exact path='/change_chore' render={routerProps=><ChangeChore {...routerProps} clients={this.props.clients}/>}/>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
+                <Route exact path='/logout' component={()=>logout()}/>
                 <div className="Sessions">
                   <Link to={'/login'}>Log In &nbsp;</Link>
 
-                  <Link to={Community}>Log Out &nbsp;</Link>
+                  <Link to={'/logout'}>Log Out &nbsp;</Link>
 
                   <Link to={'/signup'}>Create New Account</Link>
                 </div>
@@ -84,6 +85,12 @@ class App extends Component {
     );
   }
 }
+
+  const logout=()=>{
+    if(sessionStorage['current']) sessionStorage.removeItem('current')
+    return <Redirect to='login'/>
+  }
+
 
 const mapStateToProps=(state)=>{
   return {clients: state.clients, user:state.user}

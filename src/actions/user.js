@@ -11,7 +11,7 @@ export const signup = (user, callback)=>{
       sessionStorage.setItem('current', user.username)
        dispatch({type: 'SET_USER', payload: user.username})
        callback()
-    }).catch(error=> console.log('got the error',error))
+    }).catch(error=> alert("Sorry, The Information Provided Is Invalid. Please Review Your Information And Try Again."))
   }
 }
 
@@ -31,6 +31,6 @@ export const login = (user, callback)=>{
       sessionStorage.setItem('current', user.username)
        dispatch({type: 'SET_USER', payload: user.username})
 
-     }).catch(error=>console.log("gitcha",error))
+     }).catch(error=>alert("Sorry, Your Login Failed. Please Review Your Information And Try Again."))
   }
 }
