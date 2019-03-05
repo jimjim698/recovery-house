@@ -43,3 +43,27 @@ export const deleteUser = (id)=>{
     })
   }
 }
+
+export function fetchUsers(){
+
+    return (dispatch)=>{
+      dispatch({type: "LOADING_USERS"})
+    return fetch(url).then(response=>{
+      return response.json()
+    }).then(users=>{
+      return dispatch({type:"FETCH_USERS", payload: users})
+    })
+  }
+}
+
+export function fetchClients(){
+
+  return (dispatch)=>{
+    dispatch({type: 'LOADING_CLIENTS'})
+    return fetch(url).then(response=>{
+      return response.json()
+  }).then(clients=>{
+      return dispatch({type: 'FETCH_CLIENTS', payload: clients})
+  })
+ }
+}

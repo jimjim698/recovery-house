@@ -13,6 +13,7 @@ import {connect} from 'react-redux'
 import {Client} from './components/Client'
 import Login from './components/Login'
 import Signup from './containers/Signup'
+import AnnouncementContainer from './containers/AnnoucementContainer'
 
 
 
@@ -43,7 +44,7 @@ class App extends Component {
                   <Button href='/clients' variant="secondary" size="sm">
                     Clients
                   </Button>
-                  <Button href='/community' variant="secondary" size="sm">
+                  <Button href='/annoucements' variant="secondary" size="sm">
                   Community
                   </Button>
 
@@ -62,7 +63,7 @@ class App extends Component {
             <Router>
               <React.Fragment>
                 <Route exact path='/clients/new' component={()=> loggedIn() ? <AddClient/> : <Redirect to='/login'/>}/>
-                <Route exact path='/community' component={Community}/>
+                <Route exact path='/annoucements' component={AnnouncementContainer}/>
                 <Route exact path='/chores' render ={()=><Chores clients={this.props.clients}/>}/>
                 <Route exact path='/clients' render={()=><Clients clients={this.props.clients}/>}/>
                 <Route exact path='/chores/edit' render={ ()=> loggedIn() ? <ChangeChore clients={this.props.clients}/>:<Redirect to='/login'/>}/>
