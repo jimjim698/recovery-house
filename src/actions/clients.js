@@ -1,15 +1,14 @@
 const url = 'http://localhost:3001/api/clients'
 
-export const addClient = (client, callback)=>{
+export const addClient = (client)=>{
   return (dispatch)=>{
-    return fetch('http://localhost:3001/api/clients',{
+    return fetch(url,{
       method: 'POST',
       body:JSON.stringify({client: client}),
       headers: {'Content-Type': 'application/json'}
     }).then(response=> response.json()).then(client=>{
       return dispatch({type: 'ADD_CLIENT', payload: client})
     })
-    callback()
   }
 }
 
@@ -17,7 +16,7 @@ export const addClient = (client, callback)=>{
 
 export const editChore = (clientId, chore)=>{
   return(dispatch)=>{
-    return fetch(`http://localhost:3001/api/clients/${clientId}`,{
+    return fetch(`${url}/${clientId}`,{
       method: 'PATCH',
       body: JSON.stringify({clientId: clientId, chore: chore}),
       headers: {'Content-Type': 'application/json'}
@@ -32,7 +31,7 @@ export function fetchClients(){
 
   return (dispatch)=>{
     dispatch({type: 'LOADING_CLIENTS'})
-    return fetch('http://localhost:3001/api/clients').then(response=>{
+    return fetch(url).then(response=>{
       return response.json()
   }).then(clients=>{
       return dispatch({type: 'FETCH_CLIENTS', payload: clients})
