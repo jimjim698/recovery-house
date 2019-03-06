@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {postAnnouncement} from '../actions/announcements'
 
-export default class AnnouncementForm extends Component{
+ class AnnouncementForm extends Component{
   constructor(){
     super()
     this.state={
@@ -14,9 +15,19 @@ export default class AnnouncementForm extends Component{
 
 
 
+handleChange=(e)=>{
+  const {name, value} = e.target
+  this.setState({
+    [name]: value
+  })
+}
+
+handleSubmit=(e)=>{
+  e.preventDefault()
+  this.props.postAnnouncement(this.state)
+}
 
 
-  
 
 
 
@@ -26,13 +37,13 @@ export default class AnnouncementForm extends Component{
     return(
 
       <div>
-      <form>
+      <form onSubmit={this.handleSubmit}>
 
-      <textarea /><br/>
+      <textarea name="content" onChange={this.handleChange}value={this.state.content}/><br/>
       <input type="submit"/>
 
       </form>
-
+      {console.log(this.state)}
 
       </div>
 
@@ -41,3 +52,5 @@ export default class AnnouncementForm extends Component{
     )
   }
 }
+
+export default connect(null,{postAnnouncement})(AnnouncementForm)
