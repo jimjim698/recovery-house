@@ -14,7 +14,7 @@ import Announcements from './Announcements'
 
     displayUsers=()=>{
       return this.props.users.map(user=>{
-        console.log(user)
+  
         return <div>{user.username}</div>
       })
     }

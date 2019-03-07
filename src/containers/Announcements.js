@@ -9,7 +9,11 @@ class Announcements extends Component{
 
 
   displayAnnouncements=()=>{
-
+    return this.props.announcements.map(announcement=>{
+      return(
+        <Announcement />
+      )
+    })
   }
 
   componentDidMount=()=>{
@@ -23,7 +27,9 @@ class Announcements extends Component{
 
     return(
 
-      <div></div>
+      <div>
+        {this.displayAnnouncements()}
+      </div>
     )
   }
 }
@@ -31,7 +37,7 @@ class Announcements extends Component{
 
 const mapStateToProps=(state)=>{
   return {
-    announcements: state.annoucements
+    announcements: state.announcements
   }
 }
 
