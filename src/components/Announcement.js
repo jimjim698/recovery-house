@@ -12,7 +12,7 @@ import{connect} from 'react-redux'
     <div className="card-block">
       <blockquote className="card-blockquote">
 
-         <p>Hey</p>
+         <p>{announcement.content}</p>
       </blockquote>
     </div>
     <div className="float-right">

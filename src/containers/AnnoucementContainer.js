@@ -4,17 +4,20 @@ import {fetchUsers} from '../actions/user'
 import {connect} from 'react-redux'
 import {Announcement} from '../components/Announcement'
 import Announcements from './Announcements'
+import {fetchAnnouncements} from '../actions/announcements'
+
 
   class AnnouncementContainer extends Component{
 
 
     componentDidMount=()=>{
       this.props.fetchUsers()
+      this.props.fetchAnnouncements()
     }
 
     displayUsers=()=>{
       return this.props.users.map(user=>{
-  
+
         return <div>{user.username}</div>
       })
     }
@@ -30,8 +33,7 @@ import Announcements from './Announcements'
       <h1>Announcements</h1>
       {this.displayUsers()}
       <AnnouncementForm/>
-      <Announcements/>
-
+      <Announcements announcements={this.props.announcements}/>
       </div>
 
 
@@ -41,7 +43,7 @@ import Announcements from './Announcements'
 }
 
 const mapStateToProps =(state)=>{
-  return{ users: state.user.all}
+  return{ users: state.user.all, announcements: state.announcements}
 }
 
-export default connect(mapStateToProps,{fetchUsers})(AnnouncementContainer)
+export default connect(mapStateToProps,{fetchUsers, fetchAnnouncements})(AnnouncementContainer)

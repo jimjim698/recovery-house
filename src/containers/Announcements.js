@@ -11,14 +11,11 @@ class Announcements extends Component{
   displayAnnouncements=()=>{
     return this.props.announcements.map(announcement=>{
       return(
-        <Announcement />
+        <Announcement announcement={announcement} />
       )
     })
   }
 
-  componentDidMount=()=>{
-    this.props.fetchAnnouncements()
-  }
 
 
 
@@ -35,10 +32,6 @@ class Announcements extends Component{
 }
 
 
-const mapStateToProps=(state)=>{
-  return {
-    announcements: state.announcements
-  }
-}
 
-export default connect(mapStateToProps,{fetchAnnouncements})(Announcements)
+
+export default connect(null)(Announcements)
