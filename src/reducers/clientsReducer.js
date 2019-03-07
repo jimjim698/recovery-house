@@ -4,8 +4,7 @@ function clientsReducer(state= initialState, action){
 
   switch(action.type){
     case "ADD_CLIENT":
-    console.log(action)
-    return state.concat(action.client)
+    return [...state, action.payload]
     case 'LOADING_CLIENTS':
     return state
     case "FETCH_CLIENTS":
