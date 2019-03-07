@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import AnnouncementForm from './AnnouncementForm'
 import {fetchUsers} from '../actions/user'
 import {connect} from 'react-redux'
-
+import {Announcement} from '../components/Announcement'
+import Announcements from './Announcements'
 
   class AnnouncementContainer extends Component{
 
@@ -29,6 +30,7 @@ import {connect} from 'react-redux'
       <h1>Announcements</h1>
       {this.displayUsers()}
       <AnnouncementForm/>
+      <Announcements/>
 
       </div>
 

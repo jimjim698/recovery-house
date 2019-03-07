@@ -8,21 +8,18 @@ export const postAnnouncement=(announcement)=>{
       body:JSON.stringify({announcement: announcement}),
       headers: {'Content-Type': 'application/json', 'Authorization': sessionStorage.current}
     }).then(response=> response.json())
-    .then(announcements=>{
+    .then(announcement=>{
 
+      return dispatch({type: 'ADD_ANNOUNCEMENT', payload: announcement})
     })
   }
 }
 
 
-export const addClient = (client)=>{
+export function fetchAnnouncements(){
   return (dispatch)=>{
-    return fetch(url,{
-      method: 'POST',
-      body:JSON.stringify({client: client}),
-      headers: {'Content-Type': 'application/json'}
-    }).then(response=> response.json()).then(client=>{
-      return dispatch({type: 'ADD_CLIENT', payload: client})
+    return fetch(url).then(response=> response.json()).then(announcements=>{
+      return dispatch({type:'FETCH_ANNOUNCEMENTS', payload: announcements})
     })
   }
 }
