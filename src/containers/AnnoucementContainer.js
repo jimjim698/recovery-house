@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {Announcement} from '../components/Announcement'
 import Announcements from './Announcements'
 import {fetchAnnouncements} from '../actions/announcements'
-
+import {likeAnnouncement} from '../actions/announcements'
 
   class AnnouncementContainer extends Component{
 
@@ -33,7 +33,7 @@ import {fetchAnnouncements} from '../actions/announcements'
       <h1>Announcements</h1>
       {this.displayUsers()}
       <AnnouncementForm/>
-      <Announcements announcements={this.props.announcements}/>
+      <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement}/>
       </div>
 
 
@@ -46,4 +46,4 @@ const mapStateToProps =(state)=>{
   return{ users: state.user.all, announcements: state.announcements}
 }
 
-export default connect(mapStateToProps,{fetchUsers, fetchAnnouncements})(AnnouncementContainer)
+export default connect(mapStateToProps,{fetchUsers, fetchAnnouncements, likeAnnouncement})(AnnouncementContainer)

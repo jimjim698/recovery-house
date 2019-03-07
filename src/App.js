@@ -45,7 +45,7 @@ class App extends Component {
                     Clients
                   </Button>
                   <Button href='/annoucements' variant="secondary" size="sm">
-                  Community
+                  Announcements
                   </Button>
 
                   <Button href='/chores'variant="secondary" size="sm">

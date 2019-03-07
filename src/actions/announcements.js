@@ -23,3 +23,9 @@ export function fetchAnnouncements(){
     })
   }
 }
+
+
+export function likeAnnouncement(announcement){
+  announcement.likes +=1
+  debugger
+}
