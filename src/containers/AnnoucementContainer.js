@@ -7,7 +7,7 @@ import Announcements from './Announcements'
 import {fetchAnnouncements} from '../actions/announcements'
 import {likeAnnouncement} from '../actions/announcements'
 import{dislikeAnnouncement} from '../actions/announcements'
-
+import {deleteAnnouncement} from '../actions/announcements'
 
 
   class AnnouncementContainer extends Component{
@@ -32,7 +32,7 @@ import{dislikeAnnouncement} from '../actions/announcements'
   render(){
     const guestView = (
       <div>
-          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement}/>
+          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement} deleteAnnouncement={this.props.deleteAnnouncement}/>
           </div>
         )
 
@@ -40,7 +40,7 @@ import{dislikeAnnouncement} from '../actions/announcements'
       const userView = (
         <div>
           <AnnouncementForm/>
-          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement}/>
+          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement} deleteAnnouncement={this.props.deleteAnnouncement}/>
           </div>
         )
 
@@ -63,4 +63,4 @@ const mapStateToProps =(state)=>{
   return{ users: state.user.all, announcements: state.announcements}
 }
 
-export default connect(mapStateToProps,{fetchUsers, fetchAnnouncements, likeAnnouncement, dislikeAnnouncement})(AnnouncementContainer)
+export default connect(mapStateToProps,{fetchUsers, fetchAnnouncements, likeAnnouncement, dislikeAnnouncement, deleteAnnouncement})(AnnouncementContainer)

@@ -2,7 +2,7 @@ import React from 'react'
 import{connect} from 'react-redux'
 
 
- export const Announcement = ({announcement, likeAnnouncement, dislikeAnnouncement})=>{
+ export const Announcement = ({announcement, likeAnnouncement, dislikeAnnouncement, deleteAnnouncement})=>{
 
 
   return(
@@ -20,7 +20,7 @@ import{connect} from 'react-redux'
           <button
             type="button"
             className="btn btn-primary"
-            onClick={()=>likeAnnouncement(announcement)}
+            onClick={()=>{likeAnnouncement(announcement)}}
 
           >
             Like
@@ -28,12 +28,20 @@ import{connect} from 'react-redux'
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={()=> dislikeAnnouncement(announcement)}
-
+            onClick={()=>dislikeAnnouncement(announcement)}
           >
             Dislike
           </button>
-        
+
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={()=>{deleteAnnouncement(announcement)}}
+          >
+
+            <span aria-hidden="true">&times;</span>
+          </button>
+
         </div>
         <div>Likes: {announcement.likes}  Dislikes:{announcement.dislikes} </div>
       </div>

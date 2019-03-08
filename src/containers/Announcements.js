@@ -9,11 +9,14 @@ class Announcements extends Component{
 
 
   displayAnnouncements=()=>{
-    
-    if (this.props.announcements.length > 0 && this.props.announcements[0].id < this.props.announcements[1].id){this.props.announcements.reverse()}
-    return this.props.announcements.map(announcement=>{
+
+  //  if (!!this.props.announcements.length>0){
+    //  this.props.announcements.reverse()
+  //}
+    //if (this.props.announcements.length > 0 && this.props.announcements[0].id > this.props.announcements[1].id){this.props.announcements.reverse()}
+    return this.props.announcements.slice(0).reverse().map(announcement=>{
       return(
-        <Announcement announcement={announcement} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement}/>
+        <Announcement announcement={announcement} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement} deleteAnnouncement={this.props.deleteAnnouncement}/>
       )
     })
   }

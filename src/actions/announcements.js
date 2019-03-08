@@ -50,3 +50,16 @@ export function dislikeAnnouncement(announcement){
     })
   }
 }
+
+export function deleteAnnouncement(announcement){
+
+  return(dispatch)=>{
+    return fetch(`${url}/${announcement.id}`,{
+      method: 'DELETE',
+      body: JSON.stringify({announcementId:announcement.id, dislikes: announcement.dislikes}),
+      header:{'Content-Type': 'application/json'}
+    }).then(response=> response.json()).then(announcement=>{
+      return dispatch({type: 'DELETE_ANNOUNCEMENT', announcementId: announcement.id})
+    })
+  }
+}

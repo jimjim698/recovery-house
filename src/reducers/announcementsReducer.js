@@ -26,6 +26,9 @@ export default function annoucementsReducer(state=initialState,action){
           return announcement
         }
       })
+
+      case 'DELETE_ANNOUNCEMENT':
+      return state.filter(announcement=> announcement.id !== action.announcementId)
       return newState
       default: return state
   }
