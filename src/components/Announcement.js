@@ -20,6 +20,7 @@ import{connect} from 'react-redux'
           <button
             type="button"
             className="btn btn-primary"
+            onClick={()=>likeAnnouncement(announcement)}
 
           >
             Like
@@ -27,7 +28,6 @@ import{connect} from 'react-redux'
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={likeAnnouncement(announcement)}
           >
             Dislike
           </button>
