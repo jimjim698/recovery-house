@@ -9,7 +9,8 @@ class Announcements extends Component{
 
 
   displayAnnouncements=()=>{
-    return this.props.announcements.map(announcement=>{
+
+    return this.props.announcements.reverse().map(announcement=>{
       return(
         <Announcement announcement={announcement} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement}/>
       )
