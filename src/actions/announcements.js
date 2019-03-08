@@ -28,11 +28,12 @@ export function fetchAnnouncements(){
 export function likeAnnouncement(announcement){
   announcement.likes +=1
   return(dispatch)=>{
-
     return fetch(`${url}/${announcement.id}`,{
       method: 'PATCH',
       body: JSON.stringify({announcementId:announcement.id, likes: announcement.likes}),
       headers: {'Content-Type': 'application/json'}
+    }).then(response=> response.json()).then(announcement=>{
+      return dispatch({type: "UP_LIKE", announcementId: announcement.id})
     })
   }
 }
