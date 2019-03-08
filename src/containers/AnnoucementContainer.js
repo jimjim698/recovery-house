@@ -28,16 +28,30 @@ import{dislikeAnnouncement} from '../actions/announcements'
 
 
 
+
   render(){
+    const guestView = (
+      <div>
+          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement}/>
+          </div>
+        )
+
+
+      const userView = (
+        <div>
+          <AnnouncementForm/>
+          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement}/>
+          </div>
+        )
+
     return(
 
       <div>
 
       <h1>Announcements</h1>
-      {this.displayUsers()}
-      <AnnouncementForm/>
-      <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement}/>
-      </div>
+
+      {!!sessionStorage.current ? userView : guestView}
+    </div>
 
 
 
