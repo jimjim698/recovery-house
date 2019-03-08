@@ -2,7 +2,7 @@ import React from 'react'
 import{connect} from 'react-redux'
 
 
- export const Announcement = ({announcement, likeAnnouncement})=>{
+ export const Announcement = ({announcement, likeAnnouncement, dislikeAnnouncement})=>{
 
 
   return(
@@ -28,6 +28,8 @@ import{connect} from 'react-redux'
           <button
             type="button"
             className="btn btn-secondary"
+            onClick={()=> dislikeAnnouncement(announcement)}
+
           >
             Dislike
           </button>

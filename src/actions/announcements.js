@@ -37,3 +37,16 @@ export function likeAnnouncement(announcement){
     })
   }
 }
+
+export function dislikeAnnouncement(announcement){
+  announcement.dislikes += 1
+  return (dispatch)=>{
+    return fetch(`${url}/${announcement.id}`,{
+      method: 'PATCH',
+      body: JSON.stringify({announcementId:announcement.id, dislikes: announcement.dislikes}),
+      headers: {'Content-Type': 'application/json'}
+    }).then(response=> response.json()).then(announcement=>{
+      return dispatch({type: "DOWN_LIKE", announcementId: announcement.id})
+    })
+  }
+}

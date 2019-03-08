@@ -18,6 +18,15 @@ export default function annoucementsReducer(state=initialState,action){
       })
 
       return newState
+    case 'DOWN_LIKE':
+        newState=state.map(announcement=>{
+        if(announcement.id=== action.announcementId){
+          return{...announcement, dislikes: +announcement.dislikes}
+        }else{
+          return announcement
+        }
+      })
+      return newState
       default: return state
   }
 }
