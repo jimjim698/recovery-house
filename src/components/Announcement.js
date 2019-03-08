@@ -33,13 +33,7 @@ import{connect} from 'react-redux'
           >
             Dislike
           </button>
-          <button
-            type="button"
-            className="btn btn-danger"
-          >
-
-            <span aria-hidden="true">&times;</span>
-          </button>
+        
         </div>
         <div>Likes: {announcement.likes}  Dislikes:{announcement.dislikes} </div>
       </div>
