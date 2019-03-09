@@ -7,7 +7,7 @@ import{connect} from 'react-redux'
 
   return(
     <div>
-    <div className="card card-inverse card-success card-primary mb-3 text-center">
+    <div className="card card-primary ">
 
     <div className="card-block">
       <blockquote className="card-blockquote">
@@ -38,8 +38,7 @@ import{connect} from 'react-redux'
             className="btn btn btn-outline-dark"
             onClick={()=>{deleteAnnouncement(announcement)}}
           >
-
-            <span aria-hidden="true">&times;</span>
+          <span>&times;</span>
           </button>
 
         </div>
