@@ -4,7 +4,6 @@ import AddClient from './containers/AddClient'
 import {ButtonToolbar} from 'react-bootstrap'
 import {Button} from 'react-bootstrap'
 import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
-import Community from './containers/Community'
 import Chores from './components/Chores'
 import Clients from './containers/Clients'
 import ChangeChore from './containers/ChangeChore'
@@ -14,29 +13,24 @@ import {Client} from './components/Client'
 import Login from './components/Login'
 import Signup from './containers/Signup'
 import AnnouncementContainer from './containers/AnnoucementContainer'
-
+import {fetchUsers} from './actions/user'
+import {Staff} from './components/Staff'
 
 
 
 
 class App extends Component {
 
-  constructor(){
-    super()
-    this.state={
-      hello:'hello'
-    }
-  }
-
-
   componentDidMount=()=>{
     this.props.fetchClients()
+    this.props.fetchUsers()
   }
 
   render() {
     return (
       <div>
         <div className="App">
+          <a className="clickMe" href='/staff' >Meet The Staff</a>
           <header className="App-header">
             <h2>Recovery House</h2>
               <div>
@@ -70,12 +64,15 @@ class App extends Component {
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
                 <Route exact path='/logout' component={()=>logout()}/>
+                <Route exact path='/staff' component={()=><Staff users={this.props.users}/>}/>
                 <div className="Sessions">
                   <Link to={'/login'}>Log In &nbsp;</Link>
 
                   <Link to={'/logout'}>Log Out &nbsp;</Link>
 
-                  <Link to={'/signup'}>Create New Account</Link>
+                  <Link to={'/signup'}>Create New Account &nbsp;</Link>
+                    <Link className="clickMe" to={'/login'}>Meet The Staff</Link>
+
                 </div>
               </React.Fragment>
       </Router>
@@ -97,7 +94,7 @@ class App extends Component {
 
 
 const mapStateToProps=(state)=>{
-  return {clients: state.clients, user:state.user}
+  return {clients: state.clients, user:state.user, users: state.user.all}
 }
 
-export default connect(mapStateToProps,{fetchClients})(App);
+export default connect(mapStateToProps,{fetchClients, fetchUsers})(App);
