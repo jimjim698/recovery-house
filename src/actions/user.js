@@ -8,7 +8,6 @@ export const signup = (user, callback)=>{
       body: JSON.stringify({user: user}),
       headers:{'Content-Type': 'application/json'}
     }).then(response=> response.json()).then(user=>{
-      debugger
       sessionStorage.setItem('current', user.username)
        dispatch({type: 'SET_USER', payload: user.username})
        callback()
@@ -55,16 +54,4 @@ export function fetchUsers(){
       return dispatch({type:"FETCH_USERS", payload: users})
     })
   }
-}
-
-export function fetchClients(){
-
-  return (dispatch)=>{
-    dispatch({type: 'LOADING_CLIENTS'})
-    return fetch(url).then(response=>{
-      return response.json()
-  }).then(clients=>{
-      return dispatch({type: 'FETCH_CLIENTS', payload: clients})
-  })
- }
 }
