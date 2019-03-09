@@ -16,10 +16,10 @@ import{connect} from 'react-redux'
       </blockquote>
     </div>
     <div className="float-right">
-        <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
+        <div className="btn-group btn-group-sm" >
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-outline-primary "
             onClick={()=>{likeAnnouncement(announcement)}}
 
           >
@@ -27,7 +27,7 @@ import{connect} from 'react-redux'
           </button>
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-outline-danger "
             onClick={()=>dislikeAnnouncement(announcement)}
           >
             Dislike
@@ -35,7 +35,7 @@ import{connect} from 'react-redux'
 
           <button
             type="button"
-            className="btn btn-danger"
+            className="btn btn btn-outline-dark"
             onClick={()=>{deleteAnnouncement(announcement)}}
           >
 
