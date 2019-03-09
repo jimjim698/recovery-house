@@ -46,6 +46,7 @@ export function dislikeAnnouncement(announcement){
       body: JSON.stringify({announcementId:announcement.id, dislikes: announcement.dislikes}),
       headers: {'Content-Type': 'application/json'}
     }).then(response=> response.json()).then(announcement=>{
+      
       return dispatch({type: "DOWN_LIKE", announcementId: announcement.id})
     })
   }
