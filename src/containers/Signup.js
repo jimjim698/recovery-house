@@ -7,7 +7,8 @@ import {connect} from 'react-redux'
     super()
     this.state={
       username: "",
-      password: ""
+      password: "",
+      position: ""
     }
   }
 
@@ -34,9 +35,11 @@ import {connect} from 'react-redux'
       <form onSubmit={this.handleSubmit}>
       <label>Username</label><br/>
       <input name='username'onChange={this.handleChange}type='text'value={this.state.username}/><br/>
+      <label>Position</label><br/>
+      <input name="position" onChange={this.handleChange} type='text' value={this.state.position}/><br/>
       <label>Password</label><br/>
       <input name='password'onChange={this.handleChange} type='password'value={this.state.password}/><br/><br/>
-      <input type='submit' value="Create Account"/>
+    <input type='submit' value="Create Account"/>
 
 
       </form>

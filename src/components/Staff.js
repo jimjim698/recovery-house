@@ -1,12 +1,29 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-export const Staff= ({users})=>{
-  return users.map(user=>{
-    return(
-    <li>  {user.username}</li>
-    )
-  })
+
+export class Staff extends Component{
+
+
+  displayUsers=()=>{
+    return this.props.users.map(user=>{
+      return <h3>{user.username} - {user.position}</h3> 
+    })
+  }
+
+
+
+
+  render(){
+
   return(
-    <div>Heyo</div>
+    <div>
+
+    <h1>Meet Our Staff</h1>
+    <ul>
+    {this.displayUsers()}
+    </ul>
+    </div>
   )
+}
+
 }

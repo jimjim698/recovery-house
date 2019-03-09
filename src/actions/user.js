@@ -8,6 +8,7 @@ export const signup = (user, callback)=>{
       body: JSON.stringify({user: user}),
       headers:{'Content-Type': 'application/json'}
     }).then(response=> response.json()).then(user=>{
+      debugger
       sessionStorage.setItem('current', user.username)
        dispatch({type: 'SET_USER', payload: user.username})
        callback()
