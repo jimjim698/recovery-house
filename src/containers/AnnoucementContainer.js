@@ -14,7 +14,7 @@ import {deleteAnnouncement} from '../actions/announcements'
 
 
     componentDidMount=()=>{
-      this.props.fetchUsers()
+
       this.props.fetchAnnouncements()
     }
 
@@ -32,7 +32,7 @@ import {deleteAnnouncement} from '../actions/announcements'
   render(){
     const guestView = (
       <div>
-          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement} deleteAnnouncement={this.props.deleteAnnouncement}/>
+          <Announcements announcements={this.props.announcements} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement} deleteAnnouncement={()=> alert('You do not have permission to delete an announcement')}/>
           </div>
         )
 
