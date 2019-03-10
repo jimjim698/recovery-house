@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ChoreForm from '../components/ChoreForm'
+import ChoreForm from '../containers/ChoreForm'
 
 
 export default class ChangeChore extends Component{
@@ -13,11 +13,6 @@ export default class ChangeChore extends Component{
 
 handleClick=(client)=>{
   document.getElementByClassName("chore").innerHTML("Hi")
-}
-
-
-handleSubmit=()=>{
-
 }
 
 displayChores=()=>{
