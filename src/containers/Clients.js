@@ -9,16 +9,6 @@ import {deleteClient} from '../actions/clients'
  class Clients extends Component{
 
 
-handle=()=>{
-  return(
-    <div>
-      Hey
-
-    </div>
-  )
-}
-
-
 displayClients=()=>{
 return this.props.clients.map(client=>{
     return(<Client key={client.id} loggedIn={loggedIn} deleteClient={this.props.deleteClient} client={client} />)
@@ -38,7 +28,4 @@ return this.props.clients.map(client=>{
   }
 }
 
-const mapDispatchToProps=()=>{
-
-}
 export default connect(null,{deleteClient})(Clients)
