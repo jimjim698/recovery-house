@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import AnnouncementForm from './AnnouncementForm'
-import {fetchUsers} from '../actions/user'
+import {fetchUsers} from '../actions/users'
 import {connect} from 'react-redux'
 import {Announcement} from '../components/Announcement'
 import Announcements from './Announcements'

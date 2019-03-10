@@ -13,9 +13,9 @@ import {Client} from './components/Client'
 import Login from './components/Login'
 import Signup from './containers/Signup'
 import AnnouncementContainer from './containers/AnnoucementContainer'
-import {fetchUsers} from './actions/user'
+import {fetchUsers} from './actions/users'
 import {Staff} from './components/Staff'
-import {deleteUser} from './actions/user'
+import {deleteUser} from './actions/users'
 
 
 
