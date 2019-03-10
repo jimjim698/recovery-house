@@ -11,7 +11,7 @@ class Announcements extends Component{
   displayAnnouncements=()=>{
     return this.props.announcements.slice(0).reverse().map(announcement=>{
       return(
-        <Announcement announcement={announcement} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement} deleteAnnouncement={this.props.deleteAnnouncement}/>
+        <Announcement key={announcement.id} announcement={announcement} likeAnnouncement={this.props.likeAnnouncement} dislikeAnnouncement={this.props.dislikeAnnouncement} deleteAnnouncement={this.props.deleteAnnouncement}/>
       )
     })
   }
