@@ -15,6 +15,7 @@ import Signup from './containers/Signup'
 import AnnouncementContainer from './containers/AnnoucementContainer'
 import {fetchUsers} from './actions/user'
 import {Staff} from './components/Staff'
+import {deleteUser} from './actions/user'
 
 
 
@@ -64,7 +65,7 @@ class App extends Component {
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
                 <Route exact path='/logout' component={()=>logout()}/>
-                <Route exact path='/staff' component={()=><Staff users={this.props.users}/>}/>
+                <Route exact path='/staff' component={()=><Staff users={this.props.users} deleteUser={this.props.deleteUser}/>}/>
                 <div className="Sessions">
                   <Link to={'/login'}>Log In &nbsp;</Link>
 
@@ -97,4 +98,4 @@ const mapStateToProps=(state)=>{
   return {clients: state.clients, user:state.user, users: state.user.all}
 }
 
-export default connect(mapStateToProps,{fetchClients, fetchUsers})(App);
+export default connect(mapStateToProps,{fetchClients, fetchUsers, deleteUser})(App);
