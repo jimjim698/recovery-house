@@ -9,7 +9,7 @@ function usersReducer(state=initialState, action){
     case 'SET_USER':
     return {...state, current:action.payload }
     case 'DELETE_USER':
-    return state.all.filter(user=> user.id !== action.payload.id)
+    return {...state, all: state.all.filter(user=> user.id !== action.payload.id)}
     default: return state
   }
 }

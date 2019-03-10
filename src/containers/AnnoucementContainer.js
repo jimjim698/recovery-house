@@ -18,16 +18,6 @@ import {deleteAnnouncement} from '../actions/announcements'
       this.props.fetchAnnouncements()
     }
 
-    displayUsers=()=>{
-      return this.props.users.map(user=>{
-
-        return <div>{user.username}</div>
-      })
-    }
-
-
-
-
 
   render(){
     const guestView = (
