@@ -66,18 +66,18 @@ class App extends Component {
                 <Route exact path='/signup' component={Signup}/>
                 <Route exact path='/logout' component={()=>logout()}/>
                 <Route exact path='/staff' component={()=><Staff users={this.props.users} deleteUser={this.props.deleteUser}/>}/>
-                <div className="Sessions">
-                  <Link to={'/login'}>Log In &nbsp;</Link>
+                  <div className="Sessions">
 
-                  <Link to={'/logout'}>Log Out &nbsp;</Link>
 
-                  <Link to={'/signup'}>Create New Account &nbsp;</Link>
+                    <Link to={'/login'}>Log In &nbsp;</Link>
+                    <Link to={'/logout'}>Log Out &nbsp;</Link>
+                    <Link to={'/signup'}>Create New Account &nbsp;</Link>
                     <Link className="clickMe" to={'/login'}>Meet The Staff</Link>
 
                 </div>
-              </React.Fragment>
-      </Router>
-      </div>
+                </React.Fragment>
+              </Router>
+            </div>
       </div>
 
     );
