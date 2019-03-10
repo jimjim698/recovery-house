@@ -39,7 +39,7 @@ export const deleteUser = (id)=>{
         'Content-Type': 'application/json'
       }
     }).then(response=> response.json()).then(user=>{
-      dispatch({type: 'DELETE_USER', payload: user.username})
+      dispatch({type: 'DELETE_USER', payload: user})
     })
   }
 }

@@ -48,7 +48,7 @@ export const deleteClient = (id)=>{
         'Content-Type': 'application/json'
       }
     }).then(response=> response.json()).then(user=>{
-      dispatch({type: 'DELETE_USER', payload: user})
+      dispatch({type: 'DELETE_CLIENT', payload: user})
     })
   }
 }
