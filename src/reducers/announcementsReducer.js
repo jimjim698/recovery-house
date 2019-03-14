@@ -1,7 +1,7 @@
 const initialState=[]
 
 
-export default function annoucementsReducer(state=initialState,action){
+export default function announcementsReducer(state=initialState,action){
 
   switch(action.type){
     case 'ADD_ANNOUNCEMENT':
