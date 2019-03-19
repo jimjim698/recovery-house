@@ -31,32 +31,34 @@ class App extends Component {
     return (
       <div>
         <div className="App">
-          <a className="clickMe" href='/staff' >Meet The Staff</a>
+
+            <Router>
+              <React.Fragment>
+                <Link to='/staff' className='clickMe'>Meet The Staff</Link>
           <header className="App-header">
             <h2>Recovery House</h2>
               <div>
                 <ButtonToolbar>
-                  <Button href='/clients' variant="secondary" size="sm">
+                  <Link to="/clients"><Button  variant="secondary" size="sm">Clients
                     Clients
-                  </Button>
-                  <Button href='/annoucements' variant="secondary" size="sm">
+                  </Button></Link>
+                <Link to='/announcements'><Button variant="secondary" size="sm">
                   Announcements
-                  </Button>
+                </Button></Link>
 
-                  <Button href='/chores'variant="secondary" size="sm">
+              <Link to='/chores'> <Button variant="secondary" size="sm">
                   Chores
-                  </Button>
-                  <Button href='/clients/new'variant="secondary" size="sm">
+                </Button></Link>
+              <Link to='/clients/new'><Button variant="secondary" size="sm">
                   Add Client
-                  </Button>
-                  <Button href='/chores/edit'variant="secondary" size="sm">
+                </Button></Link>
+              <Link to= '/chores/edit'> <Button variant="secondary" size="sm">
                   Change Chores
-                  </Button>
+                </Button></Link>
                 </ButtonToolbar>
               </div>
             </header>
-            <Router>
-              <React.Fragment>
+
                 <Route exact path='/clients/new' component={()=> loggedIn() ? <AddClient/> : <Redirect to='/login'/>}/>
                 <Route exact path='/annoucements' component={AnnouncementContainer}/>
                 <Route exact path='/chores' render ={()=><Chores clients={this.props.clients}/>}/>

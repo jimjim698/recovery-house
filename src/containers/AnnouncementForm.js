@@ -24,7 +24,9 @@ handleChange=(e)=>{
 
 handleSubmit=(e)=>{
   e.preventDefault()
+  console.log('A')
   this.props.postAnnouncement(this.state)
+  console.log('B')
   this.setState({
     content: "",
     likes: 0,

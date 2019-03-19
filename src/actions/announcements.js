@@ -2,6 +2,7 @@ const url = 'http://localhost:3001/api/announcements'
 
 
 export const postAnnouncement=(announcement)=>{
+  console.log('C')
   return (dispatch)=>{
     return fetch(url, {
       method: 'POST',
@@ -9,12 +10,12 @@ export const postAnnouncement=(announcement)=>{
       headers: {'Content-Type': 'application/json', 'Authorization': sessionStorage.current}
     }).then(response=> response.json())
     .then(announcement=>{
-
-      return dispatch({type: 'ADD_ANNOUNCEMENT', payload: announcement})
+      console.log('D')
+      dispatch({type: 'ADD_ANNOUNCEMENT', payload: announcement})
     })
   }
+  console.log('E')
 }
-
 
 export function fetchAnnouncements(){
   return (dispatch)=>{
